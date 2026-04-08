@@ -1,19 +1,20 @@
-import sqlite3
+import sqlite3  # Import the sqlite3 library
 
-class DatabaseManager:
+class DatabaseManager:   # DatabaseManager class
     def __init__(self, db_name="database.db"):
         self.db_name = db_name
         self.conn = None
         self.cursor = None
 
-    def connect(self):
+    def connect(self):    # Method to establish a connection to the SQLite database
         self.conn = sqlite3.connect(self.db_name)
         self.cursor = self.conn.cursor()
 
-    def create_tables(self):
+    def create_tables(self):   # Method to create required tables if they do not already exist
+
         # Users table
         self.cursor.execute("""
-        CREATE TABLE IF NOT EXISTS users (
+        CREATE TABLE IF NOT EXISTS users (     
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL,
             email TEXT UNIQUE NOT NULL,
@@ -23,7 +24,7 @@ class DatabaseManager:
 
         # Services table
         self.cursor.execute("""
-        CREATE TABLE IF NOT EXISTS services (
+        CREATE TABLE IF NOT EXISTS services (   
             service_id INTEGER PRIMARY KEY AUTOINCREMENT,
             service_name TEXT NOT NULL,
             price REAL NOT NULL
@@ -42,7 +43,7 @@ class DatabaseManager:
         )
         """)
 
-        self.conn.commit()
+        self.conn.commit()   # Save all changes to the database
 
     def close(self):
-        self.conn.close()
+        self.conn.close() # Close the connection to the database
