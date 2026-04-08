@@ -5,5 +5,6 @@
     <orderEntry type="jdk" jdkName="Python 3.13" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="PragraLearning" />
+    <orderEntry type="module" module-name="PythonProject" />
   </component>
 </module>
